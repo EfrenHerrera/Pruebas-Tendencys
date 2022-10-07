@@ -9,20 +9,16 @@ const db = require('./config/db/mongodb');
 const app = express();
 
 var corsOptions = { 
-    origin: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+  origin: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 };
 
 app.use(logger('dev'));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
-var corsOptions = { 
-  origin: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-};
+
 app.use(cors(corsOptions));
 app.use(express.static(path.join(__dirname, 'public')));
 
